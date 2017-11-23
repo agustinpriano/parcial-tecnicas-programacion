@@ -55,6 +55,20 @@ def ordenarPorCantidadDePuntos(lista2):
     lista2.sort(key=lambda x: x[1])
     return lista2
 
+def devolverListaConEquiposEmpatados(lista):
+    sublista = []
+    x = len(lista) - 1
+    puntajeMax = lista[x][1]
+    while lista[x][1] == puntajeMax and x >= 0:
+        if lista[x][1] not in sublista:
+            sublista.append(lista[x][0])
+        x = x - 1
+    return sublista
+
+def ordenarPorOrdenAlfabetico(lista):
+    lista.sort(key=lambda x: x[0])
+    return lista
+
 def ganadorDeLiga(listaDeResultados):
     diccionario={}
     lista=[]
@@ -64,16 +78,21 @@ def ganadorDeLiga(listaDeResultados):
         lista=listaEquipos(diccionario)
         lista2=listaEquiposConPuntosSumados(lista)
         lista2=ordenarPorCantidadDePuntos(lista2)
-        if lista2[len(lista2)-1][1]==lista2[len(lista2)-2][1]:
-            if lista2[len(lista2)-1][0]<lista2[len(lista2)-2][0]:
-                return(lista2[len(lista2)-1][0])
-            else:
-                return (lista2[len(lista2) - 2][0])
+        sublista = devolverListaConEquiposEmpatados(lista2)
+        if len(sublista)==1:
+            return sublista[0]
         else:
-            return(lista2[len(lista2)-1][0])
+            sublista = ordenarPorOrdenAlfabetico(sublista)
+            return sublista[0]
     else:
         return ""
 
+lista=listaEquipos({'a': [2, 1], 'b': [1], 'c': [2,2,2]})
+print(lista)
+lista=listaEquiposConPuntosSumados(lista)
+
+lista=ordenarPorCantidadDePuntos([['b', [1]], ['c', [6]], ['a', [3]]])
+print(lista)
 assert (ejercicio3([]) == "")
 assert (ejercicio3([("a", 1, "b", 0)]) == "a")
 assert (ejercicio3([("a", 1, "b", 0), ("a", 1, "c", 2), ("c", 3, "b", 0)]) == "c")
