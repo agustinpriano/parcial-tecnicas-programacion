@@ -1,8 +1,15 @@
 import unittest
 import ejercicio1
-
+#TODO dejar 1 sola clase por modulo
+#TODO cada funcion de prueba tiene que tener 1 solo assert
+#TODO nombre de las funciones de prueba test_rotarPalabra
+# test_rotarPalabra => testRotarPalabraRecibeUnaPalabraVaciaDeberiaDevolverUnaListaVacia
 class TestGeneroListaDeCaracteres(unittest.TestCase):
     def test_generoListaDeCaracteres(self):
+        #AAA
+        #ARRANGE
+        #ACT
+        #ASSERT
         self.assertEqual(ejercicio1.generoListaDeCaracteres("hola"),['h','o','l','a'])
         self.assertEqual(ejercicio1.generoListaDeCaracteres(""),[])
         self.assertEqual(ejercicio1.generoListaDeCaracteres("   "),[' ',' ',' '])
@@ -23,6 +30,15 @@ class TestGeneroListasDePalabrasRotadas(unittest.TestCase):
 
 class TestRotarPalabra(unittest.TestCase):
     def test_rotarPalabra(self):
+        #ARRANGE
+        #palabraVacia = ""
+
+        #ACT
+        #resultado = ejercicio1.rotarPalabra(palabraVacia)
+
+        #ASSERT
+        #self.assertEqual(resultado,[])
+
         self.assertEqual(ejercicio1.rotarPalabra(""),[])
         self.assertEqual(ejercicio1.rotarPalabra("a"), ['a'])
         self.assertEqual(ejercicio1.rotarPalabra("ab"), ['ab','ba'])
