@@ -59,9 +59,3 @@ def devolverBarcosNoHundidos(mapa,listaDeTuplas):
                     fila=fila+1
                     columna=0
     return listaADevolver
-
-def ejercicio2(var1,var2):
-    return devolverBarcosNoHundidos(var1,var2)
-
-posicionesDeDisparosDePrueba = [(1,1),(3,4),(1,3),(4,5)]
-

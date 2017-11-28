@@ -2,6 +2,7 @@ import unittest
 import ejercicio3
 
 class TestEjercicio3(unittest.TestCase):
+
     def test_GanadorDeLigaRecibeListaVaciaDeberiaDevolverCadenaVacia(self):
         self.assertEqual(ejercicio3.ganadorDeLiga([]),"")
 

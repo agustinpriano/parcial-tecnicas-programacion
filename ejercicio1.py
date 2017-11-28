@@ -46,9 +46,3 @@ def rotarPalabra(palabra):
     if palabraValida==True:
         lista = generoListasDePalabrasRotadas(sublista,palabra)
     return lista
-
-def ejercicio1(var1):
-    return rotarPalabra(var1)
-
-
-

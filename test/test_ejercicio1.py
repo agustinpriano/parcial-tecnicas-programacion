@@ -1,16 +1,11 @@
 import unittest
 import ejercicio1
-#TODO dejar 1 sola clase por modulo
-#TODO cada funcion de prueba tiene que tener 1 solo assert
-#TODO nombre de las funciones de prueba test_rotarPalabra
-# test_rotarPalabra => testRotarPalabraRecibeUnaPalabraVaciaDeberiaDevolverUnaListaVacia
+
 class TestEjercicio1(unittest.TestCase):
+
     def test_rotarPalabraRecibePalabraVaciaDeberiaDevolverListaVacia(self):
-        #AAA
-        #ARRANGE
-        #ACT
-        #ASSERT
         self.assertEqual(ejercicio1.rotarPalabra(""),[])
+
     def test_rotarPalabraRecibeCadenaDeEspaciosDeberiaDevolverListaVacia(self):
         self.assertEqual(ejercicio1.rotarPalabra("     "),[])
 
