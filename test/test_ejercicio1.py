@@ -4,43 +4,27 @@ import ejercicio1
 #TODO cada funcion de prueba tiene que tener 1 solo assert
 #TODO nombre de las funciones de prueba test_rotarPalabra
 # test_rotarPalabra => testRotarPalabraRecibeUnaPalabraVaciaDeberiaDevolverUnaListaVacia
-class TestGeneroListaDeCaracteres(unittest.TestCase):
-    def test_generoListaDeCaracteres(self):
+class TestEjercicio1(unittest.TestCase):
+    def test_rotarPalabraRecibePalabraVaciaDeberiaDevolverListaVacia(self):
         #AAA
         #ARRANGE
         #ACT
         #ASSERT
-        self.assertEqual(ejercicio1.generoListaDeCaracteres("hola"),['h','o','l','a'])
-        self.assertEqual(ejercicio1.generoListaDeCaracteres(""),[])
-        self.assertEqual(ejercicio1.generoListaDeCaracteres("   "),[' ',' ',' '])
-
-class TestComprueboValidezDePalabra(unittest.TestCase):
-    def test_comprueboValidezDePalabra(self):
-        self.assertEqual(ejercicio1.comprueboValidezDePalabra(['a'],"a"),True)
-        self.assertEqual(ejercicio1.comprueboValidezDePalabra(['a','b','c'], "abc"), True)
-        self.assertEqual(ejercicio1.comprueboValidezDePalabra([' '], " "), False)
-        self.assertEqual(ejercicio1.comprueboValidezDePalabra([' ',' '], "  "), False)
-
-class TestGeneroListasDePalabrasRotadas(unittest.TestCase):
-    def test_generoListasDePalabrasRotadas(self):
-        self.assertEqual(ejercicio1.generoListasDePalabrasRotadas(['a','b','c'],"abc"),["abc","bca","cab"])
-        self.assertEqual(ejercicio1.generoListasDePalabrasRotadas(['b', 'c', 'a'], "abc"), ["bca", "cab", "abc"])
-        self.assertEqual(ejercicio1.generoListasDePalabrasRotadas([''], ""), [""])
-        self.assertEqual(ejercicio1.generoListasDePalabrasRotadas([' '], " "), [" "])
-
-class TestRotarPalabra(unittest.TestCase):
-    def test_rotarPalabra(self):
-        #ARRANGE
-        #palabraVacia = ""
-
-        #ACT
-        #resultado = ejercicio1.rotarPalabra(palabraVacia)
-
-        #ASSERT
-        #self.assertEqual(resultado,[])
-
         self.assertEqual(ejercicio1.rotarPalabra(""),[])
-        self.assertEqual(ejercicio1.rotarPalabra("a"), ['a'])
-        self.assertEqual(ejercicio1.rotarPalabra("ab"), ['ab','ba'])
-        self.assertEqual(ejercicio1.rotarPalabra("paz"), ['paz','azp','zpa'])
+    def test_rotarPalabraRecibeCadenaDeEspaciosDeberiaDevolverListaVacia(self):
+        self.assertEqual(ejercicio1.rotarPalabra("     "),[])
+
+    def test_rotarPalabraRecibeLetraUnicaDeberiaDevolverListaConLaLetraComoUnicoElemento(self):
+        self.assertEqual(ejercicio1.rotarPalabra("a"),['a'])
+
+    def test_rotarPalabraRecibePalabraDeDosCaracteresDeberiaDevolverListaConLasDosRotacionesPosibles(self):
+        self.assertEqual(ejercicio1.rotarPalabra("ab"),['ab','ba'])
+
+    def test_rotarPalabraRecibePalabraDeTresCaracteresDeberiaDevolverListaConLasTresRotacionesPosibles(self):
+        self.assertEqual(ejercicio1.rotarPalabra("paz"),['paz','azp','zpa'])
+
+    def test_rotarPalabraRecibePalabraDeCuatroCaracteresConUnEspacioDeberiaDevolverListaConLasCuatroRotaciones(self):
         self.assertEqual(ejercicio1.rotarPalabra("so l"),['so l','o ls',' lso','lso '])
+
+    def test_rotarPalabraRecibePalabraDeCincoCaracteresDeberiaDevolverListaConLasCincoRotacionesPosibles(self):
+        self.assertEqual(ejercicio1.rotarPalabra("rotar"),['rotar','otarr','tarro','arrot','rrota'])

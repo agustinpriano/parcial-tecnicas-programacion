@@ -1,18 +1,30 @@
 import unittest
 import ejercicio2
 
-class TestContarColumnasPorFila(unittest.TestCase):
-    def test_contarColumnasPorFila(self):
-        self.assertEqual(ejercicio2.contarColumnasPorFila([]),0)
-        self.assertEqual(ejercicio2.contarColumnasPorFila(["b.bb.","bb"]), 0)
-        self.assertEqual(ejercicio2.contarColumnasPorFila(["", ""]), 1)
-        self.assertEqual(ejercicio2.contarColumnasPorFila([" ", ""]), 0)
-        self.assertEqual(ejercicio2.contarColumnasPorFila(["bbb", "..."]), 1)
+class TestEjercicio2(unittest.TestCase):
 
-class TestDevolverBarcosNoHundidos(unittest.TestCase):
-    def test_devolverBarcosNoHundidos(self):
-        self.assertEqual(ejercicio2.devolverBarcosNoHundidos(["b.b.","....","..bb","b.b"],[(1,1),(3,4),(1,3),(4,5)]),[])
-        self.assertEqual(ejercicio2.devolverBarcosNoHundidos(["b.b..","b...b",".....","....b"], [(1, 1), (3, 4), (1, 3), (4, 5)]), [(2,1),(2,5)])
-        self.assertEqual(ejercicio2.devolverBarcosNoHundidos(["b..","...","..b"],[]),[(1, 1), (3, 3)])
-        self.assertEqual(ejercicio2.devolverBarcosNoHundidos([], [(1,1),(3,4),(1,3),(4,5)]), [])
+    posicionesDeDisparosDePrueba = [(1, 1), (3, 4), (1, 3), (4, 5)]
 
+    def test_devolverBarcosHundidosRecibeListaVaciaYPosicionesDePruebaDeberiaDevolverListaVacia(self):
+        self.assertEqual(ejercicio2.devolverBarcosNoHundidos([],self.posicionesDeDisparosDePrueba),[])
+
+    def test_devolverBarcosHundidosRecibeListaDeCadenaNulaYPosicionesDePruebaDeberiaDevolverListaVacia(self):
+        self.assertEqual(ejercicio2.devolverBarcosNoHundidos([""],self.posicionesDeDisparosDePrueba),[])
+
+    def test_devolverBarcosHundidosRecibeListaDeCadenaConEspaciosYPosicionesDePruebaDeberiaDevolverListaVacia(self):
+        self.assertEqual(ejercicio2.devolverBarcosNoHundidos(["      "],self.posicionesDeDisparosDePrueba),[])
+
+    def test_devolverBarcosHundidosRecibeListaDeCadenaInvalidaYPosicionesDePruebaDeberiaDevolverListaVacia(self):
+        self.assertEqual(ejercicio2.devolverBarcosNoHundidos(["soy NO valido"],self.posicionesDeDisparosDePrueba),[])
+
+    def test_devolverBarcosHundidosRecibeListaDeCadenasInvalidasYPosicionesDePruebaDeberiaDevolverListaVacia(self):
+        self.assertEqual(ejercicio2.devolverBarcosNoHundidos(["yo","tambien","soy","invalido"],self.posicionesDeDisparosDePrueba),[])
+
+    def test_devolverBarcosHundidosRecibeListaDeCadenasConNumeroDistintoDeElementosPorCadenaDeberiaYPosicionesDePruebaDevolverListaVacia(self):
+        self.assertEqual(ejercicio2.devolverBarcosNoHundidos(["b.b.","....","..bb","b.b"],self.posicionesDeDisparosDePrueba),[])
+
+    def test_devolverBarcosHundidosRecibeListaDeCadenasValidaYPosicionesDePruebaDeberiaDevolverListaConPosicionesDeBarcosSupervivientes(self):
+        self.assertEqual(ejercicio2.devolverBarcosNoHundidos(["b.b..","b...b",".....","....b"],self.posicionesDeDisparosDePrueba),[(2,1),(2,5)])
+
+    def test_devolverBarcosHundidosRecibeListaDeCadenasValidaYListaDePosicionesVaciaDeberiaDevolverListaConPosicionesDeBarcosSupervivientes(self):
+        self.assertEqual(ejercicio2.devolverBarcosNoHundidos(["b..","...","..b"],[]), [(1,1),(3,3)])
