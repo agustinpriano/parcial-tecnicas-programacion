@@ -87,14 +87,3 @@ def ganadorDeLiga(listaDeResultados):
     else:
         return ""
 
-lista=listaEquipos({'a': [2, 1], 'b': [1], 'c': [2,2,2]})
-print(lista)
-lista=listaEquiposConPuntosSumados(lista)
-
-lista=ordenarPorCantidadDePuntos([['b', [1]], ['c', [6]], ['a', [3]]])
-print(lista)
-assert (ejercicio3([]) == "")
-assert (ejercicio3([("a", 1, "b", 0)]) == "a")
-assert (ejercicio3([("a", 1, "b", 0), ("a", 1, "c", 2), ("c", 3, "b", 0)]) == "c")
-assert (ejercicio3([("Boca", 1, "Belgrano", 1), ("Boca", 1, "Almagro", 1), ("Almagro", 1, "Belgrano", 1)]) == "Almagro")
-assert (ejercicio3([("a", 1, "b", -2), ("a", 1, "c", 1), ("c", 1, "b", 1), ("d", 1, "a", 9)]) == "a")
